@@ -8,16 +8,31 @@ public class playerController : MonoBehaviour
     public float speed = 5.0f;
     private float mouseSen = 2.0f;
     private Rigidbody rb;
+    Animator anim;
 
     public Camera mainCamera;
 
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
     }
-	
-	
-	void FixedUpdate()
+    private void Update()
+    {
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        if (x != 0f || z != 0f)
+        {
+            anim.SetBool("walk", true);
+        }
+        else
+        {
+            anim.SetBool("walk", false);
+        }
+    }
+
+    void FixedUpdate()
     {
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
 
@@ -34,6 +49,8 @@ public class playerController : MonoBehaviour
 
         Vector3 rotX = new Vector3(Input.GetAxis("Mouse Y"), 0.0f, 0.0f) * mouseSen;
         mainCamera.transform.Rotate(-1 * rotX);
+
+        
     }
 
     private void OnTriggerEnter(Collider other)
