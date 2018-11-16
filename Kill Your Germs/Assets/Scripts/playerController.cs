@@ -30,6 +30,15 @@ public class playerController : MonoBehaviour
         {
             anim.SetBool("walk", false);
         }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            anim.SetFloat("speed", 2.0f);
+        }
+        else
+        {
+            anim.SetFloat("speed", 0.0f);
+        }
     }
 
     void FixedUpdate()
