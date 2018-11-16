@@ -35,4 +35,13 @@ public class playerController : MonoBehaviour
         Vector3 rotX = new Vector3(Input.GetAxis("Mouse Y"), 0.0f, 0.0f) * mouseSen;
         mainCamera.transform.Rotate(-1 * rotX);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Enemy"))
+        {
+            //Destroy(this);
+            //Debug.Log("You die");
+        }
+    }
 }
