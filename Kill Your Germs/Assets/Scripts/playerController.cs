@@ -25,7 +25,7 @@ public class playerController : MonoBehaviour
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-
+        this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, 0.1f, this.gameObject.transform.position.z);
         if (x != 0f || z != 0f)
         {
             anim.SetBool("walk", true);

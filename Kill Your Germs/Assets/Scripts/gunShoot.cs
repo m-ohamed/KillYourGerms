@@ -7,7 +7,7 @@ public class gunShoot : MonoBehaviour
 {
     public float damage = 5.0f;
     public float range = 100.0f;
-    public float ammo = 100.0f;
+    public static float ammo = 100.0f;
     public Text ammotext;
     public Camera mainCamera;
 
@@ -22,10 +22,10 @@ public class gunShoot : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		if(Input.GetButtonDown("Fire1"))
+        ammotext.text = "AMMO:" + ammo;
+        if (Input.GetButtonDown("Fire1"))
         {
             ammo -= 1;
-            ammotext.text = "AMMO:" + ammo;
             RaycastHit bullet;
             if(Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out bullet))
             {
