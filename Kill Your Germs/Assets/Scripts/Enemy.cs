@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
     public float health = 100f;
     public GameObject player;
     public float speed = 0.01f;
+    public Image healthbar;
 
 	// Use this for initialization
 	void Start ()
@@ -30,7 +32,7 @@ public class Enemy : MonoBehaviour
     public void Damage(float damage)
     {
         health = health - damage;
-
+        healthbar.fillAmount = health / 100f;
         if(health <= 0.0f)
         {
             Destroy(gameObject);

@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerController : MonoBehaviour
 {
 
     public float speed = 5.0f;
     private float mouseSen = 2.0f;
+    public float health = 100f;
+    public Image healthbar;
+    public Text healthtext;
     private Rigidbody rb;
     Animator anim;
 
@@ -66,8 +70,14 @@ public class playerController : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Enemy"))
         {
-            //Destroy(this);
-            //Debug.Log("You die");
+            Destroy(other.gameObject);
+            health = health - 25;
+            healthtext.text = "Health: " + health;
+            healthbar.fillAmount = health / 100f;
+            if (health <= 0.0f)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
