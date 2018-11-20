@@ -5,8 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class mainMenuScript : MonoBehaviour
 {
+    void Start()
+    {
+    }
 
-	public void startGame()
+    // Update is called once per frame
+    void Update()
+    {
+    }
+
+    public void startGame()
     {
         SceneManager.LoadScene("kitchenScene");
     }

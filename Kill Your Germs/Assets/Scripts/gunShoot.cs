@@ -22,8 +22,16 @@ public class gunShoot : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        if (ammo > 0) {
+            ammotext.color = Color.cyan;
         ammotext.text = "AMMO:" + ammo;
-        if (Input.GetButtonDown("Fire1"))
+        }
+        else
+        {
+            ammotext.color = Color.red;
+            ammotext.text = "AMMO:" + ammo;
+        }
+        if (Input.GetButtonDown("Fire1") && ammo>0)
         {
             ammo -= 1;
             RaycastHit bullet;
