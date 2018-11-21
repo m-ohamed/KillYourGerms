@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour
         healthbar.fillAmount = health / 100f;
         if(health <= 0.0f)
         {
+            player.GetComponent<playerController>().kills++;
             Destroy(gameObject);
         }
     }

@@ -11,16 +11,20 @@ public class playerController : MonoBehaviour
     public float health = 100f;
     public Image healthbar;
     public Text healthtext;
+    public Text killstext;
+    public Text timertext;
     public AudioSource youLose;
     private Rigidbody rb;
     Animator anim;
-
+    public int kills;
+    public GameObject gameoverpanel;
     public Camera mainCamera;
 
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        kills = 0;
     }
     private void Update()
     {
@@ -44,6 +48,8 @@ public class playerController : MonoBehaviour
         {
             anim.SetFloat("speed", 0.0f);
         }
+        killstext.text = "Kills: " + kills;
+        timertext.text = "Time: " + (int)Time.timeSinceLevelLoad;
     }
 
     void FixedUpdate()
@@ -77,9 +83,9 @@ public class playerController : MonoBehaviour
             healthbar.fillAmount = health / 100f;
             if (health <= 0.0f)
             {
-                youLose.Play();
+                //youLose.Play();
                 Time.timeScale = 0.0f;
-                //Destroy(gameObject);
+                gameoverpanel.GetComponent<gameOverScript>().endgame();
             }
         }
     }

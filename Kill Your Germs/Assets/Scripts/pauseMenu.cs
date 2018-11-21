@@ -9,7 +9,8 @@ public class pauseMenu : MonoBehaviour {
     public static bool ispaused = false;
     // Use this for initialization
     void Start () {
-	}
+        ispaused = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -44,8 +45,9 @@ public class pauseMenu : MonoBehaviour {
         ispaused = true;
     }
 
-    void Quittomainmenu()
+    public void Quittomainmenu()
     {
-        //SceneManager.SetActiveScene("mainmenuscene"); 
+        Resume();
+        SceneManager.LoadScene("mainMenu");
     }
 }
