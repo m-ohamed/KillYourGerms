@@ -11,6 +11,7 @@ public class playerController : MonoBehaviour
     public float health = 100f;
     public Image healthbar;
     public Text healthtext;
+    public AudioSource youLose;
     private Rigidbody rb;
     Animator anim;
 
@@ -76,7 +77,9 @@ public class playerController : MonoBehaviour
             healthbar.fillAmount = health / 100f;
             if (health <= 0.0f)
             {
-                Destroy(gameObject);
+                youLose.Play();
+                Time.timeScale = 0.0f;
+                //Destroy(gameObject);
             }
         }
     }

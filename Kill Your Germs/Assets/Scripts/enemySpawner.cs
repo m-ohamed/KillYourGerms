@@ -6,20 +6,31 @@ public class enemySpawner : MonoBehaviour
 {
     public GameObject enemy;
     public GameObject player;
+    public GameObject pickUp;
+    public static bool noPickUp = false;
 
     private float timer = 5.0f;
 
 	// Use this for initialization
 	void Start ()
     {
-		
-	}
+        float pickUpRandX = Random.Range(-30.0f, 30.0f);
+        float pickUpRandZ = Random.Range(-30.0f, 30.0f);
+
+        GameObject newPickUp = Instantiate(pickUp, new Vector3(pickUpRandX, 1.0f, pickUpRandZ), transform.rotation);
+        newPickUp.SetActive(true);
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
         timer -= Time.deltaTime;
 
+        if (noPickUp)
+        {
+            spawnPickUp();
+            noPickUp = false;
+        }
 
         if (timer <= 0.0f)
         {
@@ -50,4 +61,13 @@ public class enemySpawner : MonoBehaviour
             timer = 5.0f;
         }
 	}
+
+    public void spawnPickUp()
+    {
+        float pickUpRandX = Random.Range(-30.0f, 30.0f);
+        float pickUpRandZ = Random.Range(-30.0f, 30.0f);
+
+        GameObject newPickUp = Instantiate(pickUp, new Vector3(pickUpRandX, 1.0f, pickUpRandZ), transform.rotation);
+        newPickUp.SetActive(true);
+    }
 }

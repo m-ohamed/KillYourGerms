@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ammoInteract : MonoBehaviour
 
 {
-
+    
     public GameObject interactpanel;
     // Use this for initialization
     void Start()
@@ -24,6 +24,9 @@ public class ammoInteract : MonoBehaviour
                 if (gunShoot.ammo < 100)
                 {
                     gunShoot.ammo = 100;
+                    interactpanel.SetActive(false);
+                    Destroy(transform.parent.gameObject.transform.parent.gameObject);
+                    enemySpawner.noPickUp = true;
                 }
             }
         }
