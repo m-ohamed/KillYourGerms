@@ -10,7 +10,7 @@ public class gunShoot : MonoBehaviour
     public static float ammo = 100.0f;
     public Text ammotext;
     public Camera mainCamera;
-
+    public ParticleSystem firee;
     private Rigidbody rb;
 
 	// Use this for initialization
@@ -34,6 +34,8 @@ public class gunShoot : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && ammo>0)
         {
             ammo -= 1;
+            transform.GetComponent<AudioSource>().Play(0);
+            firee.Play();
             RaycastHit bullet;
             if(Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out bullet))
             {

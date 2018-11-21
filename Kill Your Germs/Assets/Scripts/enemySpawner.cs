@@ -14,8 +14,8 @@ public class enemySpawner : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        float pickUpRandX = Random.Range(-30.0f, 30.0f);
-        float pickUpRandZ = Random.Range(-30.0f, 30.0f);
+        float pickUpRandX = Random.Range(-30f, 30f);
+        float pickUpRandZ = Random.Range(-30f, 30f);
 
         GameObject newPickUp = Instantiate(pickUp, new Vector3(pickUpRandX, 1.0f, pickUpRandZ), transform.rotation);
         newPickUp.SetActive(true);
