@@ -60,7 +60,8 @@ public class enemySpawner : MonoBehaviour
 
             GameObject newEnemy = Instantiate(enemy, new Vector3(randX, 1.0f, randZ), transform.rotation);
             newEnemy.SetActive(true);
-            timer = 5.0f;
+
+            timer = (5.0f - (((int)Time.timeSinceLevelLoad) / 30.0f) <= 1.0f) ? 1.0f : 5.0f - (((int)Time.timeSinceLevelLoad) / 30.0f);
         }
 	}
 

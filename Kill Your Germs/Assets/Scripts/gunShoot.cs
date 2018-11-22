@@ -7,7 +7,7 @@ public class gunShoot : MonoBehaviour
 {
     public float damage = 5.0f;
     public float range = 100.0f;
-    public static float ammo = 100.0f;
+    public static float ammo = 50.0f;
     public Text ammotext;
     public Camera mainCamera;
     public ParticleSystem firee;
@@ -38,7 +38,8 @@ public class gunShoot : MonoBehaviour
             transform.GetComponent<AudioSource>().Play(0);
             firee.Play();
             RaycastHit bullet;
-            if(Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out bullet))
+
+            if(Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out bullet, range))
             {
                 Enemy enemy = bullet.transform.GetComponent<Enemy>();
 
