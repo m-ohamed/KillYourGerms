@@ -61,8 +61,12 @@ public class enemySpawner : MonoBehaviour
             GameObject newEnemy = Instantiate(enemy, new Vector3(randX, 1.0f, randZ), transform.rotation);
             newEnemy.SetActive(true);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
             timer = (5.0f - (((int)Time.timeSinceLevelLoad) / 30.0f) <= 2.0f) ? 2.0f : 5.0f - (((int)Time.timeSinceLevelLoad) / 30.0f);
+=======
+            timer = 5.0f;
+>>>>>>> parent of 1f4c89c... minor edits
 =======
             timer = 5.0f;
 >>>>>>> parent of 1f4c89c... minor edits
