@@ -10100,7 +10100,7 @@ MonoBehaviour:
   healthtext: {fileID: 121175517}
   killstext: {fileID: 347317659}
   timertext: {fileID: 393764022}
-  youLose: {fileID: 0}
+  youLose: {fileID: 1038761735}
   kills: 0
   gameoverpanel: {fileID: 873363338}
   mainCamera: {fileID: 171389909}

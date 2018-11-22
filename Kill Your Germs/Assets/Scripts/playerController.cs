@@ -88,9 +88,13 @@ public class playerController : MonoBehaviour
             healthbar.fillAmount = health / 100f;
             if (health <= 0.0f)
             {
-                //youLose.Play();
+                youLose.Play();
                 Time.timeScale = 0.0f;
                 gameoverpanel.GetComponent<gameOverScript>().endgame();
+            }
+            else
+            {
+                Playenemydeathsound();
             }
         }
     }

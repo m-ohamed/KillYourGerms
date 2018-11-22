@@ -24,11 +24,11 @@ public class gameOverScript : MonoBehaviour {
     public void endgame()
     {
         ingamemusic.Pause();
-        menumusic.Play(0);
+        menumusic.PlayDelayed(4.0f);
         gameoverpanel.SetActive(true);
         ingamepanel.SetActive(false);
         killstxt.text = player.GetComponent<playerController>().killstext.text;
-        timertxt.text = player.GetComponent<playerController>().timertext.text+"Seconds";
+        timertxt.text = player.GetComponent<playerController>().timertext.text+" Seconds";
         Time.timeScale = 0f;
     }
 }
