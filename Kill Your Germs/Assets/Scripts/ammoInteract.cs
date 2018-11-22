@@ -21,9 +21,9 @@ public class ammoInteract : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                if (gunShoot.ammo < 100)
+                if (gunShoot.ammo < 50)
                 {
-                    gunShoot.ammo = 100;
+                    gunShoot.ammo = 50;
                     interactpanel.SetActive(false);
                     Destroy(transform.parent.gameObject.transform.parent.gameObject);
                     enemySpawner.noPickUp = true;
