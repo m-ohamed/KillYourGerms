@@ -14,11 +14,13 @@ public class enemySpawner : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        float pickUpRandX = Random.Range(-30f, 30f);
-        float pickUpRandZ = Random.Range(-30f, 30f);
+        float pickUpRandX = Random.Range(-66f, 0f);
+        float pickUpRandZ = Random.Range(-66f, 0f);
 
         GameObject newPickUp = Instantiate(pickUp, new Vector3(pickUpRandX, 1.0f, pickUpRandZ), transform.rotation);
         newPickUp.SetActive(true);
+        newPickUp.transform.position = new Vector3(pickUpRandX, 1.0f, pickUpRandZ);
+        //print("spawned at x:" + newPickUp.transform.position.x + "and z:" + newPickUp.transform.position.z);
     }
 	
 	// Update is called once per frame
@@ -64,10 +66,11 @@ public class enemySpawner : MonoBehaviour
 
     public void spawnPickUp()
     {
-        float pickUpRandX = Random.Range(-30.0f, 30.0f);
-        float pickUpRandZ = Random.Range(-30.0f, 30.0f);
+        float pickUpRandX = Random.Range(-66f, 0f);
+        float pickUpRandZ = Random.Range(-66f, 0f);
 
         GameObject newPickUp = Instantiate(pickUp, new Vector3(pickUpRandX, 1.0f, pickUpRandZ), transform.rotation);
         newPickUp.SetActive(true);
+        newPickUp.transform.position = new Vector3(pickUpRandX, 1.0f, pickUpRandZ);
     }
 }

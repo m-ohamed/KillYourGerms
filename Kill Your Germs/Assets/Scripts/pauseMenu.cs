@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class pauseMenu : MonoBehaviour {
     public GameObject ingamepanel;
     public GameObject pausepanel;
+    public AudioSource ingamemusic;
+    public AudioSource menumusic;
     public static bool ispaused = false;
     // Use this for initialization
     void Start () {
@@ -35,6 +38,8 @@ public class pauseMenu : MonoBehaviour {
         ingamepanel.SetActive(true);
         Time.timeScale = 1f;
         ispaused = false;
+        ingamemusic.Play(0);
+        menumusic.Pause();
     }
     public void Pause()
     {
@@ -43,11 +48,15 @@ public class pauseMenu : MonoBehaviour {
         pausepanel.SetActive(true);
         Time.timeScale = 0f;
         ispaused = true;
+        menumusic.Play(0);
+        ingamemusic.Pause();
     }
 
     public void Quittomainmenu()
     {
         Resume();
+        menumusic.Pause();
+        ingamemusic.Pause();
         SceneManager.LoadScene("mainMenu");
     }
 }

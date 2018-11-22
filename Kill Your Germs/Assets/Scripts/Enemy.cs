@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour
         if(health <= 0.0f)
         {
             player.GetComponent<playerController>().kills++;
+            player.GetComponent<playerController>().Playenemydeathsound();
             Destroy(gameObject);
         }
     }
