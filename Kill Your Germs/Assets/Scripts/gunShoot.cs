@@ -17,7 +17,7 @@ public class gunShoot : MonoBehaviour
 	void Start ()
     {
         rb = GetComponent<Rigidbody>();
-        ammo = 100.0f;
+        ammo = 50.0f;
     }
 	
 	// Update is called once per frame
